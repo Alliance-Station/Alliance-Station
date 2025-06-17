@@ -1,0 +1,4 @@
+author: "twilightwanderer"
+delete-after: True
+changes:
+  - bugfix: "Sundered blade ritual shouldn't delete more than one sheet of silver or titanium."
