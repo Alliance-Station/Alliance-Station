@@ -21,6 +21,8 @@
 #include "__odlint.dm"
 #include "_maps\_basemap.dm"
 #include "alliance_modules\master_files\__DEFINES\airlock.dm"
+#include "alliance_modules\master_files\__DEFINES\security_alerts.dm"
+#include "alliance_modules\master_files\__DEFINES\signals.dm"
 #include "code\__byond_version_compat.dm"
 #include "code\_compile_options.dm"
 #include "code\_experiments.dm"
@@ -6682,6 +6684,7 @@
 /* #include "alliance_modules\modules\mapping\code\decals.dm"
 #include "alliance_modules\modules\sprite_replacement\airalarm\code\airalarm.dm" */
 #include "alliance_modules\modules\sprite_replacement\airlock\code\airlock.dm"
+#include "alliance_modules\modules\airlock_override\code\airlock_override.dm"
 /*#include "alliance_modules\modules\sprite_replacement\decals\code\decals.dm"
 #include "alliance_modules\modules\sprite_replacement\storages\code\crate.dm"
 #include "alliance_modules\modules\sprite_replacement\storages\code\medkit.dm"
