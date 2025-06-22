@@ -166,6 +166,7 @@
 	var/turf/T = get_turf(target)
 	if(!T)
 		return FALSE
+<<<<<<< HEAD
 	if(istype(user))
 		if(isAI(user) && !GLOB.cameranet.checkTurfVis(T))
 			return FALSE
@@ -179,6 +180,35 @@
 	else //user is an atom or null
 		if(!(get_turf(target) in view(world.view, user || src)))
 			return FALSE
+=======
+	if(isAI(user))
+		return can_ai_target(target_turf)
+	if(ismob(user))
+		return can_mob_target(target_turf, user)
+
+	if(isliving(loc))
+		if(!(target_turf in view(world.view, loc)))
+			return FALSE
+		return TRUE
+
+	// User is an atom or null
+	if(!(target_turf in view(world.view, user || src)))
+		return FALSE
+	return TRUE
+
+/// Check whether an AI could take a picture of the target turf.
+/obj/item/camera/proc/can_ai_target(turf/target_turf)
+	if(!GLOB.cameranet.checkTurfVis(target_turf))
+		return FALSE
+	return TRUE
+
+/// Check whether a mob could take a picture of the target turf.
+/obj/item/camera/proc/can_mob_target(turf/target_turf, mob/user)
+	var/user_view = user.client ? user.client.view : WIDESCREEN_VIEWPORT_SIZE
+	var/user_eye = user.client ? user.client.eye : user
+	if(!(target_turf in get_hear(user_view, user_eye)))
+		return FALSE
+>>>>>>> 4c82b029c70 (Removes widescreen config (#91419))
 	return TRUE
 
 /obj/item/camera/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
