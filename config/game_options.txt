@@ -374,6 +374,7 @@ ROUNDSTART_RACES human
 #ROUNDSTART_RACES skeleton
 #ROUNDSTART_RACES zombie
 #ROUNDSTART_RACES pod
+#ROUNDSTART_RACES ghost
 
 ## Экстремальные расы. Не рекомендуется
 #ROUNDSTART_RACES android
