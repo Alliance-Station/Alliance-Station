@@ -1,8 +1,6 @@
 //ALLIANCE_CHANGE_FLAG
 
-/* ALLIANCE REMOVE BEGINE
-#define DOOR_CLOSE_WAIT 60 ///Default wait until doors autoclose
-ALLIANCE REMOVE END */
+// #define DOOR_CLOSE_WAIT 60 ///Default wait until doors autoclose //ALLIANCE EDIT REMOVAL - moved to alliance_modules\master_files\__DEFINES\airlock.dm
 /obj/machinery/door
 	name = "door"
 	desc = "It opens and closes."
@@ -318,7 +316,7 @@ ALLIANCE REMOVE END */
 		return
 	return ..()
 
-/obj/machinery/door/proc/try_to_activate_door(mob/living/user, access_bypass = FALSE)
+/obj/machinery/door/proc/try_to_activate_door(mob/user, access_bypass = FALSE)
 	add_fingerprint(user)
 	if(operating || (obj_flags & EMAGGED) || !can_open_with_hands)
 		return
@@ -332,10 +330,6 @@ ALLIANCE REMOVE END */
 		run_animation(DOOR_DENY_ANIMATION)
 
 /obj/machinery/door/allowed(mob/M)
-	if(isliving(M))
-		var/mob/living/living_user = M
-		if(!(living_user.mobility_flags & MOBILITY_USE))
-			return FALSE
 	if(emergency)
 		return TRUE
 	if(unrestricted_side(M))
@@ -420,7 +414,13 @@ ALLIANCE REMOVE END */
 			if(glass)
 				playsound(loc, 'sound/effects/glass/glasshit.ogg', 90, TRUE)
 			else if(damage_amount)
-				playsound(loc, 'sound/items/weapons/smash.ogg', 50, TRUE)
+				//playsound(loc, 'sound/items/weapons/smash.ogg', 50, TRUE) //ALLIANCE EDIT REMOVAL
+				//ALLIANCE EDIT ADDITION - CREDITS TO WHITEDREAM(valtos)
+				playsound(src, pick('alliance_modules/master_files/sound/effects/metalblock1.wav', 'alliance_modules/master_files/sound/effects/metalblock2.wav', \
+									'alliance_modules/master_files/sound/effects/metalblock3.wav', 'alliance_modules/master_files/sound/effects/metalblock4.wav', \
+									'alliance_modules/master_files/sound/effects/metalblock5.wav', 'alliance_modules/master_files/sound/effects/metalblock6.wav', \
+									'alliance_modules/master_files/sound/effects/metalblock7.wav', 'alliance_modules/master_files/sound/effects/metalblock8.wav'), 50, TRUE)
+				//ALLIANCE EDIT END
 			else
 				playsound(src, 'sound/items/weapons/tap.ogg', 50, TRUE)
 		if(BURN)
@@ -705,6 +705,4 @@ ALLIANCE REMOVE END */
 		return ..()
 	return ..(0)
 
-/* ALLIANCE REMOVE BEGINE
-#undef DOOR_CLOSE_WAIT
-ALLIANCE REMOVE END */
+// #undef DOOR_CLOSE_WAIT //ALLIANCE EDIT REMOVAL - moved to alliance_modules\master_files\__DEFINES\airlock.dm
