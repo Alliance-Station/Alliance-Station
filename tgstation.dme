@@ -17,9 +17,6 @@
 #define DEBUG
 // END_PREFERENCES
 
-//ALLIANCE __DEFINES
-#include "alliance_modules\master_files\__DEFINES\airlock.dm"
-
 // BEGIN_INCLUDE
 #include "__odlint.dm"
 #include "_maps\_basemap.dm"
