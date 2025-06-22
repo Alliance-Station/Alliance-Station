@@ -4,9 +4,12 @@
  * @license MIT
  */
 
-import { reloadByondCache } from './reloader.js';
-import { createCompiler } from './webpack.js';
+import fs from 'node:fs';
 
+import { reloadByondCache } from './reloader';
+import { createCompiler } from './webpack';
+
+<<<<<<< HEAD:tgui/packages/tgui-dev-server/index.js
 const noHot = process.argv.includes('--no-hot');
 const noTmp = process.argv.includes('--no-tmp');
 const reloadOnce = process.argv.includes('--reload');
@@ -16,6 +19,14 @@ async function setupServer() {
     hot: !noHot,
     useTmpFolder: !noTmp,
   });
+=======
+const reloadOnce = process.argv.includes('--reload');
+
+async function setupServer() {
+  fs.mkdirSync('./public/.tmp', { recursive: true });
+
+  const compiler = await createCompiler({ mode: 'development', hot: true });
+>>>>>>> 6dccb679c07 ([tgui] Reworks dev server into Bun + TS (#91695)):tgui/packages/tgui-dev-server/index.ts
 
   // Reload cache once
   if (reloadOnce) {
