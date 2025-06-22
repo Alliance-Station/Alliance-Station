@@ -13,6 +13,7 @@ https://github.com/Alliance-Station/Alliance-Station/<!-Номер PR-->
 ## TG Proc/File Changes:
 
 - code\game\machinery\doors\airlock.dm
+- code\game\machinery\doors\door.dm
 
 ## Модульные переопределения:
 

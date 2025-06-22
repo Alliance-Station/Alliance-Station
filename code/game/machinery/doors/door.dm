@@ -1,4 +1,8 @@
+//ALLIANCE_CHANGE_FLAG
+
+/* ALLIANCE REMOVE BEGINE
 #define DOOR_CLOSE_WAIT 60 ///Default wait until doors autoclose
+ALLIANCE REMOVE END */
 /obj/machinery/door
 	name = "door"
 	desc = "It opens and closes."
@@ -701,4 +705,6 @@
 		return ..()
 	return ..(0)
 
+/* ALLIANCE REMOVE BEGINE
 #undef DOOR_CLOSE_WAIT
+ALLIANCE REMOVE END */
