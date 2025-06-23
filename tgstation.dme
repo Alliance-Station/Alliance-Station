@@ -6683,3 +6683,4 @@
 #include "alliance_modules\modules\sprite_replacement\decals\code\decals.dm"
 #include "alliance_modules\modules\sprite_replacement\storages\code\crate.dm"
 #include "alliance_modules\modules\sprite_replacement\storages\code\medkit.dm"
+#include "alliance_modules\modules\sprite_replacement\walls\code\walls.dm"
