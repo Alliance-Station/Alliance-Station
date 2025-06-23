@@ -1,0 +1,78 @@
+name: Clean Action Cache
+
+on:
+  workflow_dispatch: # Позволяет запускать workflow вручную из интерфейса GitHub.
+  schedule:
+    - cron: '0 2 * * *' # Автоматический запуск каждый день в 02:00 UTC.
+
+jobs:
+  clean-cache:
+    runs-on: ubuntu-latest # Используем стандартный раннер на Ubuntu.
+    
+    steps:
+    - name: Checkout repository
+      # Этот шаг необходим, чтобы получить доступ к файлам и структуре директорий.
+      # Кэш восстанавливается в эту же директорию.
+      uses: actions/checkout@v3
+
+    - name: Restore cache
+      id: restore-cache
+      uses: actions/cache/restore@v3
+      with:
+        # Укажите путь, который вы кэшируете. 
+        # Если вы кэшируете весь репозиторий, используйте "."
+        path: . 
+        # Ключ кэша для восстановления. Используем универсальный ключ.
+        key: ${{ runner.os }}-build-cache
+        # Используем restore-keys для восстановления предыдущих версий кэша, если точного совпадения нет.
+        restore-keys: |
+          ${{ runner.os }}-build-
+
+    - name: List files to be deleted
+      id: list-files
+      run: |
+        echo "Listing all files in the current directory..."
+        find . -type f
+        
+        echo "---"
+        echo "Filtering out files that contain 'byond' in their name..."
+        
+        # Находим все файлы, чье имя НЕ содержит 'byond'
+        # и записываем их в файл для удаления.
+        find . -type f ! -name '*byond*' -print > files_to_delete.txt
+        
+        echo "The following files will be deleted:"
+        if [ -s files_to_delete.txt ]; then
+          cat files_to_delete.txt
+        else
+          echo "No files found to delete. Everything is clean."
+        fi
+
+    - name: Delete files
+      # Удаляем файлы, перечисленные в файле files_to_delete.txt
+      run: |
+        if [ -s files_to_delete.txt ]; then
+          # xargs -r -d '\n' безопаснее, чем просто xargs,
+          # так как он обрабатывает пробелы и новые строки в именах файлов.
+          # rm -v показывает, какие файлы удаляются.
+          xargs -r -d '\n' rm -v < files_to_delete.txt
+        else
+          echo "No files to delete. Skipping deletion step."
+        fi
+
+    - name: Verify remaining files
+      run: |
+        echo "Remaining files after cleaning:"
+        find . -type f
+
+    - name: Save cleaned cache
+      # Сохраняем очищенную директорию как новый кэш.
+      # Используем уникальный ключ, чтобы не конфликтовать с предыдущими версиями.
+      # Это создаст новую запись в кэше, которую можно будет использовать в будущем.
+      uses: actions/cache/save@v3
+      with:
+        path: .
+        # Новый ключ для очищенного кэша. Используем ID текущего запуска workflow.
+        key: ${{ runner.os }}-cleaned-cache-${{ github.run_id }}
+        # Условие для сохранения: сохраняем только если кэш был успешно восстановлен.
+        if: ${{ steps.restore-cache.outputs.cache-hit == 'true' }}
