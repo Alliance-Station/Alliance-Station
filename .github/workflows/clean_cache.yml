@@ -13,7 +13,7 @@ jobs:
     - name: Checkout repository
       # Этот шаг необходим, чтобы получить доступ к файлам и структуре директорий.
       # Кэш восстанавливается в эту же директорию.
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Restore cache
       id: restore-cache
