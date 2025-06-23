@@ -116,7 +116,7 @@
 // MISC END
 
 /obj/effect/turf_decal/plaque/alliance/
-	icon = 'alliance_modules/modules/mapping/icons/decals.dmi'
+	icon = 'decals.dmi'
 	icon_state = "alliance"
 
 /obj/effect/turf_decal/plaque/alliance/alliance_logo/one
