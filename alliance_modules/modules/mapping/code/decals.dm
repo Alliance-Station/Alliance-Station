@@ -1,5 +1,5 @@
 /obj/effect/turf_decal/alliance/decals
-	icon = 'alliance_modules/modules/mapping/icons/decals.dmi'
+	icon = 'decals.dmi'
 	icon_state = "alliance"
 
 /obj/effect/turf_decal/alliance/decals/numbers
