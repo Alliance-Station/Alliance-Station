@@ -1,5 +1,5 @@
 /obj/effect/turf_decal/alliance/decals
-	icon = 'decals.dmi'
+	icon = 'alliance_modules/modules/mapping/icons/decals.dmi'
 	icon_state = "alliance"
 
 /obj/effect/turf_decal/alliance/decals/numbers
@@ -116,7 +116,7 @@
 // MISC END
 
 /obj/effect/turf_decal/plaque/alliance/
-	icon = 'decals.dmi'
+	icon = 'alliance_modules/modules/mapping/icons/decals.dmi'
 	icon_state = "alliance"
 
 /obj/effect/turf_decal/plaque/alliance/alliance_logo/one
