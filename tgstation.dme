@@ -6680,3 +6680,4 @@
 // ALLIANCE MODULAR
 #include "alliance_modules\modules\mapping\code\decals.dm"
 #include "alliance_modules\modules\sprite_replacement\airalarm\code\airalarm.dm"
+#include "alliance_modules\modules\sprite_replacement\decals\code\decals.dm"
