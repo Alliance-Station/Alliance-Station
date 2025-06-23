@@ -6676,3 +6676,6 @@
 #include "interface\fonts\tiny_unicode.dm"
 #include "interface\fonts\vcr_osd_mono.dm"
 // END_INCLUDE
+
+// ALLIANCE MODULAR
+#include "alliance_modules\modules\mapping\code\decals.dm"
