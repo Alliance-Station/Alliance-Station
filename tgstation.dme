@@ -6689,3 +6689,6 @@
 #include "alliance_modules\modules\sprite_replacement\storages\code\medkit.dm"
 #include "alliance_modules\modules\sprite_replacement\walls\code\walls.dm"
 #include "alliance_modules\modules\sprite_replacement\windows\code\windows.dm"
+
+#include "alliance_modules\modules\modular_shuttles\code\shuttle.dm"
+#include "alliance_modules\modules\modular_shuttles\code\kodiak\kodiak.dm"
