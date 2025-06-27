@@ -70,7 +70,7 @@
 	name = "UT-47 Kodiak Control"
 	desc = "Used to control the UT-47 Kodiak"
 	circuit = /obj/item/circuitboard/computer/ruin/kodiak_alliance
-	shuttleId = "ruin_kodiak_alliance"
+	shuttleId = "kodiak_alliance"
 	possible_destinations = "ruin_kodiak_alliance_custom;whiteship_home"
 
 /obj/machinery/computer/shuttle/alliance/ruin/kodiak/cerberus

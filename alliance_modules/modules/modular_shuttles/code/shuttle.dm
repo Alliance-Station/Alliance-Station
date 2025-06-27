@@ -8,7 +8,6 @@
 	/// The sound range coeff for the landing and take off sound effect
 	var/sound_range = 20
 	var/can_be_called_in_transit = TRUE
-	var/admin_forced = FALSE
 
 // call the shuttle to destination target_dock
 /obj/docking_port/mobile/proc/bolt_all_doors() // Expensive procs :(
@@ -70,5 +69,5 @@
 			if(!hearing_mob?.client)
 				continue
 			var/dist = get_dist(hearing_mob.loc, distant_source.loc)
-			var/vol = clamp(40 - ((dist - 3) * 5), 0, 40) // Every tile decreases sound volume by 5
+			var/vol = clamp(40 - ((dist - 3) * 5) * 100, 0, 40) // Every tile decreases sound volume by 5
 			hearing_mob.playsound_local(distant_source, takeoff ? takeoff_sound : landing_sound, vol)

@@ -79,19 +79,21 @@
 	},
 /area/shuttle/alliance/kodiak/ruin/alliance)
 "nk" = (
-/obj/docking_port/mobile{
-	dir = 8;
-	height = 5;
-	id = "kodiak_alliance";
-	name = "Cerberus UT-47 Kodiak";
-	width = 11;
-	dwidth = 5
-	},
 /obj/effect/turf_decal/siding/blue{
 	dir = 6
 	},
 /obj/structure/fans/tiny,
 /obj/machinery/door/airlock/titanium/glass,
+/obj/docking_port/mobile{
+	dir = 8;
+	height = 5;
+	id = "kodiak_alliance";
+	name = "Alliance UT-47 Kodiak";
+	width = 11;
+	dwidth = 5;
+	shuttle_id = "kodiak_alliance";
+	preferred_direction = 8
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/alliance/kodiak/ruin/alliance)
 "nq" = (
