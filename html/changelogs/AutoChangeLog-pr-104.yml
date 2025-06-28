@@ -1,0 +1,4 @@
+author: "twilightwanderer"
+delete-after: True
+changes:
+  - code_imp: "removes an unnecessary static def in a unit test"
