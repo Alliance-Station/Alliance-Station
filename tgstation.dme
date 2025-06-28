@@ -6685,6 +6685,7 @@
 #include "alliance_modules\modules\sprite_replacement\airlock\code\airlock.dm"
 #include "alliance_modules\modules\sprite_replacement\apc\code\apc.dm"
 #include "alliance_modules\modules\sprite_replacement\decals\code\decals.dm"
+#include "alliance_modules\modules\sprite_replacement\flora\code\plants.dm"
 #include "alliance_modules\modules\sprite_replacement\storages\code\crate.dm"
 #include "alliance_modules\modules\sprite_replacement\storages\code\medkit.dm"
 #include "alliance_modules\modules\sprite_replacement\walls\code\walls.dm"
