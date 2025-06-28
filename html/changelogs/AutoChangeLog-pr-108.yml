@@ -1,0 +1,4 @@
+author: "twilightwanderer"
+delete-after: True
+changes:
+  - bugfix: "Fixed narcolepsy's odds to put you to sleep scaling infinitely"
