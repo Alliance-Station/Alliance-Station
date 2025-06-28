@@ -1,0 +1,50 @@
+name: Check For Alliance Edits
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check-alliance-edits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Check for PR title tag
+      if: startsWith(github.event.pull_request.title, '[TG MIRROR]')
+      run: echo "PR is TG MIRROR, continuing..." || exit 1
+
+    - name: Get list of changed files
+      id: changed-files
+      uses: tj-actions/changed-files@v44
+      with:
+        since_last_remote_commit: true
+
+    - name: Detect Alliance Edit Flag
+      id: detect-flag
+      run: |
+        FLAG="// ALLIANCE_EDIT_FLAG"
+        MATCH=false
+        
+        for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+          # Проверим, существует ли файл
+          if [ -f "$file" ]; then
+            # Проверим первые 5 строк на наличие флага
+            if head -n 5 "$file" | grep -q "$FLAG"; then
+              echo "Файл $file содержит флаг ALLIANCE_EDIT_FLAG"
+              MATCH=true
+              break
+            fi
+          fi
+        done
+
+        echo "match-found=$MATCH" >> "$GITHUB_OUTPUT"
+
+    - name: Add PR label if needed
+      if: steps.detect-flag.outputs.match-found == 'true'
+      uses: actions-ecosystem/action-add-labels@v1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        labels: conflicts-with-alliance-edits
