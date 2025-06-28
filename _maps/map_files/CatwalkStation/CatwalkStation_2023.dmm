@@ -4796,40 +4796,10 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
-<<<<<<< HEAD
-/obj/item/paper{
-	pixel_x = -6;
-	pixel_y = 2
-	},
-/obj/item/radio/headset/headset_medsci{
-	pixel_x = -5;
-	pixel_y = 12
-	},
-/obj/item/storage/pill_bottle/mutadone{
-	pixel_x = 8;
-	pixel_y = 16
-	},
-/obj/item/clothing/gloves/latex{
-	pixel_x = 1;
-	pixel_y = -2
-	},
-/obj/machinery/power/apc/auto_name/directional/west,
-/obj/structure/cable,
-/obj/item/storage/box/monkeycubes{
-	pixel_x = 6
-	},
-/obj/item/storage/box/monkeycubes{
-	pixel_x = 1;
-	pixel_y = -3
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/station/science/genetics)
-=======
 /obj/machinery/status_display/ai/directional/north,
 /obj/machinery/computer/mech_bay_power_console,
 /turf/open/floor/iron/smooth,
 /area/station/science/robotics)
->>>>>>> c90d5039391 (Catwalk broom closet + other fixes (#91544))
 "byY" = (
 /turf/open/floor/wood,
 /area/station/hallway/primary/central)
@@ -14270,12 +14240,6 @@
 	},
 /turf/open/floor/engine/hull,
 /area/space/nearstation)
-"ekp" = (
-/obj/structure/disposalpipe/segment{
-	dir = 10
-	},
-/turf/closed/wall,
-/area/station/maintenance/starboard/aft)
 "eku" = (
 /obj/structure/table/reinforced,
 /obj/item/stack/sheet/iron{
@@ -54845,10 +54809,6 @@
 /obj/effect/spawner/random/trash/box,
 /turf/open/floor/plating,
 /area/station/maintenance/port)
-"qmm" = (
-/obj/effect/turf_decal/tile/red/fourcorners,
-/turf/closed/wall/r_wall,
-/area/station/security/brig)
 "qmB" = (
 /obj/machinery/light_switch/directional/east,
 /turf/open/floor/iron/dark/textured_large,
@@ -115637,9 +115597,9 @@ mUi
 wKb
 wKb
 rdN
-ekp
-ekp
-ekp
+wKb
+wKb
+wKb
 jWB
 odZ
 nCo
@@ -115896,7 +115856,7 @@ uUX
 eEv
 eEv
 uWu
-ekp
+wKb
 fTM
 odZ
 nCo
@@ -116153,7 +116113,7 @@ ltC
 ltC
 byJ
 wLf
-ekp
+wKb
 wCv
 qEE
 nxh
@@ -116408,9 +116368,9 @@ qnM
 wKb
 wKb
 hGD
-ekp
-ekp
-ekp
+wKb
+wKb
+wKb
 wKb
 wKb
 wKb
@@ -168261,13 +168221,8 @@ oPP
 dnj
 hGg
 tXf
-<<<<<<< HEAD
-qmm
-lLV
-=======
 kTw
 gFx
->>>>>>> c90d5039391 (Catwalk broom closet + other fixes (#91544))
 bOI
 dDS
 uKa
@@ -168523,13 +168478,8 @@ bMg
 bOk
 kHU
 kTw
-<<<<<<< HEAD
-qmm
-mRs
-=======
 kTw
 pvF
->>>>>>> c90d5039391 (Catwalk broom closet + other fixes (#91544))
 bOI
 oPa
 uKa
