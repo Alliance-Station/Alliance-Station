@@ -1,0 +1,4 @@
+author: "twilightwanderer"
+delete-after: True
+changes:
+  - sound: "Adds glass sounds to heretic potions"
