@@ -1,4 +1,4 @@
-name: Check For Alliance Edits
+name: Check TG Mirror PR for Alliance Edits
 
 on:
   pull_request:
@@ -9,12 +9,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Check PR title for [TG Mirror]
+      id: check-title
+      run: |
+        PR_TITLE="${{ github.event.pull_request.title }}"
+        
+        if echo "$PR_TITLE" | grep -i '\[TG Mirror\]' > /dev/null; then
+          echo "is-tg-mirror=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "is-tg-mirror=false" >> "$GITHUB_OUTPUT"
+        fi
+
+    - name: Stop if not a TG Mirror PR
+      if: steps.check-title.outputs.is-tg-mirror == 'false'
+      run: |
+        echo "Not a [TG Mirror] PR — skipping."
+        exit 0
+
     - name: Checkout code
       uses: actions/checkout@v4
-
-    - name: Check for PR title tag
-      if: startsWith(github.event.pull_request.title, '[TG MIRROR]')
-      run: echo "PR is TG MIRROR, continuing..." || exit 1
+      with:
+        fetch-depth: 0  # Нужно для получения diff
 
     - name: Get list of changed files
       id: changed-files
@@ -31,9 +46,9 @@ jobs:
         for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
           # Проверим, существует ли файл
           if [ -f "$file" ]; then
-            # Проверим первые 5 строк на наличие флага
+            # считается только начало файла (первые 5 строк)
             if head -n 5 "$file" | grep -q "$FLAG"; then
-              echo "Файл $file содержит флаг ALLIANCE_EDIT_FLAG"
+              echo "Файл с кастомным флагом найден: $file"
               MATCH=true
               break
             fi
