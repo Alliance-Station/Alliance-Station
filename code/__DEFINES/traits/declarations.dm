@@ -1528,4 +1528,10 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Trait that signals to objects on this turf that its open (has UNDERFLOOR_INTERACTIBLE) but still covers them
 #define TRAIT_UNCOVERED_TURF "uncovered_turf"
 
+<<<<<<< HEAD
+=======
+/// Trait that allows mobs to perform surgery on themselves
+#define TRAIT_SELF_SURGERY "self_surgery"
+
+>>>>>>> fa573fa539b (Adds the self-surgery skillchip as a fairly rare black market item (#91606))
 // END TRAIT DEFINES
