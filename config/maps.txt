@@ -71,3 +71,7 @@ endmap
 
 map runtimestation
 endmap
+
+map ssvnorilsk
+	votable
+endmap
