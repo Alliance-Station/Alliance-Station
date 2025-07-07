@@ -9,7 +9,8 @@
 	icon = 'alliance_modules/modules/modular_obj/icons/galaxy_map.dmi'
 	icon_state = "holograph-off"
 	base_icon_state = "holograph"
-	var/overlay_galaxy = "galaxy"
+	icon_screen = "galaxy"
+	icon_keyboard = "plug"
 	circuit = /obj/item/circuitboard/computer/communications/alliance/galaxy_map
 	pixel_x = -32
 	pixel_y = -32
@@ -31,7 +32,6 @@
 		icon_state += "-off"
 	else
 		icon_state += "-on"
-		. += mutable_appearance(icon, overlay_galaxy)
 
 /obj/machinery/computer/communications/alliance/galaxy_map/power_change()
 	. = ..()
