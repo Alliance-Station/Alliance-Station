@@ -1,0 +1,4 @@
+author: "twilightwanderer"
+delete-after: True
+changes:
+  - admin: "added missing logs for prying"

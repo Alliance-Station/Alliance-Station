@@ -1,0 +1,5 @@
+author: "twilightwanderer"
+delete-after: True
+changes:
+  - image: "updates medalbox sprites."
+  - image: "adds variants to medal box sprites."
