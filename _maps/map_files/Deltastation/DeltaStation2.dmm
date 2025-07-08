@@ -21806,6 +21806,10 @@
 /obj/effect/turf_decal/siding/yellow,
 /turf/open/floor/iron,
 /area/station/engineering/atmos/storage/gas)
+"fun" = (
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/engineering/gravity_generator)
 "fuw" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 1
@@ -118532,7 +118536,7 @@ nUp
 dWk
 khE
 cna
-fFu
+fun
 whA
 vPL
 ooc
