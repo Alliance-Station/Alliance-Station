@@ -1,0 +1,4 @@
+author: "twilightwanderer"
+delete-after: True
+changes:
+  - bugfix: "Fixes inserting nightmare brains implanting the organ into their ???"
