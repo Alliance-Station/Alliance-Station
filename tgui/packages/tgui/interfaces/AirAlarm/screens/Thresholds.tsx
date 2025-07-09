@@ -1,7 +1,7 @@
 import { useBackend } from 'tgui/backend';
 import { Button, Table } from 'tgui-core/components';
 
-import { AirAlarmData } from '../types';
+import type { AirAlarmData } from '../types';
 import { useAlarmModal } from '../useModal';
 
 export function AirAlarmControlThresholds(props) {
@@ -111,6 +111,7 @@ export function AirAlarmControlThresholds(props) {
             </Button>
           </Table.Cell>
           <Table.Cell>
+<<<<<<< HEAD
             <>
               <Button
                 color="green"
@@ -134,6 +135,29 @@ export function AirAlarmControlThresholds(props) {
                 }
               />
             </>
+=======
+            <Button
+              color="green"
+              icon="sync"
+              onClick={() =>
+                act('reset_threshold', {
+                  threshold: tlv.id,
+                  threshold_type: thresholdTypeMap.all,
+                })
+              }
+            />
+            <Button
+              color="red"
+              icon="times"
+              onClick={() =>
+                act('set_threshold', {
+                  threshold: tlv.id,
+                  threshold_type: thresholdTypeMap.all,
+                  value: -1,
+                })
+              }
+            />
+>>>>>>> cadb0adeb41 ([tgui] Linter fixes 4 (#91991))
           </Table.Cell>
         </Table.Row>
       ))}
