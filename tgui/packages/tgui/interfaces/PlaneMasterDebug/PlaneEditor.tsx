@@ -7,12 +7,17 @@ import {
   Tooltip,
 } from 'tgui-core/components';
 
+<<<<<<< HEAD
 import { Plane } from './types';
+=======
+import { useBackend } from '../../backend';
+import type { Plane } from './types';
+>>>>>>> dc53bc504b2 ([tgui] Linter fixes 6 (#92071))
 import { usePlaneDebugContext } from './usePlaneDebug';
 
 export function PlaneEditor() {
-  const { activePlane, planesProcessed, setPlaneOpen, act } =
-    usePlaneDebugContext();
+  const { act } = useBackend();
+  const { activePlane, planesProcessed, setPlaneOpen } = usePlaneDebugContext();
 
   const currentPlane: Plane = planesProcessed[activePlane as number];
   const doc_html = {
