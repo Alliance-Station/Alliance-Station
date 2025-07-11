@@ -85,6 +85,39 @@
 	if(!QDELETED(inserted_board))
 		. += mutable_appearance(icon, "[base_icon_state]_c")
 
+<<<<<<< HEAD
+=======
+/**
+ * Returns the name of this component. Vending canistors & maybe other types in the future require special parsing
+ *
+ * Arguments
+ * * obj/item/component - the component typepath we are trying to get the name
+ */
+/obj/machinery/flatpacker/proc/get_flatpack_component_name(obj/item/component)
+	PRIVATE_PROC(TRUE)
+
+	if(ispath(component, /obj/item/vending_refill))
+		var/obj/item/vending_refill/canister = component
+
+		return "\improper [canister::machine_name] restocking unit"
+
+	return component::name
+
+/**
+ * Returns count of inserted flatpack component parts
+ *
+ * Arguments
+ * * obj/item/type - the component type we are trying to count
+ */
+/obj/machinery/flatpacker/proc/get_flatpack_component_count(obj/item/type)
+	PRIVATE_PROC(TRUE)
+
+	. = 0
+	for(var/obj/item/test as anything in flatpacked_components)
+		if(test.type == type)
+			. += 1
+
+>>>>>>> 9c730461639 ([NO GBP] Some flatpack & machine fixes (#92094))
 /obj/machinery/flatpacker/Exited(atom/movable/gone, direction)
 	. = ..()
 	if(gone == inserted_board)

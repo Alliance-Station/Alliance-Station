@@ -160,6 +160,18 @@
 	fire = 50
 	acid = 70
 
+<<<<<<< HEAD
+=======
+///Needed by machine frame & flatpacker i.e the named arg board
+/obj/machinery/New(loc, obj/item/circuitboard/board, ...)
+	if(istype(board))
+		circuit = board
+		//we don't want machines that override Initialize() have the board passed as a param e.g. atmos
+		return ..(loc)
+
+	return ..()
+
+>>>>>>> 9c730461639 ([NO GBP] Some flatpack & machine fixes (#92094))
 /obj/machinery/Initialize(mapload)
 	. = ..()
 	SSmachines.register_machine(src)
