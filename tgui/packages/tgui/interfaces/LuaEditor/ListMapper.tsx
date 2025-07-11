@@ -260,7 +260,7 @@ export const ListMapper = (props: ListMapperProps) => {
 
   const inner = (
     <>
-      {list && list.map(ListMapperInner)}
+      {list?.map(ListMapperInner)}
       {editable && (
         <Button
           icon="plus"
