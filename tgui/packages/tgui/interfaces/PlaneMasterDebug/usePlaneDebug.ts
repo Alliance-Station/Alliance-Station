@@ -14,7 +14,6 @@ type PlaneDebug = {
   planeOpen: boolean;
   setPlaneOpen: Dispatch<SetStateAction<boolean>>;
   planesProcessed: PlaneMap;
-  act: Function;
 };
 
 export const PlaneDebugContext = createContext({} as PlaneDebug);

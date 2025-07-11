@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import { Button, Dropdown, Modal, Section, Stack } from 'tgui-core/components';
 
+<<<<<<< HEAD
 import { BlendModes, Plane } from './types';
+=======
+import { useBackend } from '../../backend';
+import { BlendModes, type Plane } from './types';
+>>>>>>> dc53bc504b2 ([tgui] Linter fixes 6 (#92071))
 import { usePlaneDebugContext } from './usePlaneDebug';
 
 export function PlaneMenus() {
@@ -16,13 +21,9 @@ export function PlaneMenus() {
 }
 
 function AddConnectionModal() {
-  const {
-    activePlane,
-    setActivePlane,
-    setConnectionOpen,
-    planesProcessed,
-    act,
-  } = usePlaneDebugContext();
+  const { act } = useBackend();
+  const { activePlane, setActivePlane, setConnectionOpen, planesProcessed } =
+    usePlaneDebugContext();
   const currentPlane = planesProcessed[activePlane as number];
   const optionMap: Record<string, number> = {};
   const [selectedTarget, setSelectedTarget] = useState<number>();
