@@ -135,7 +135,7 @@ export const NtosNetChat = (props) => {
                     <Button
                       fluid
                       bold
-                      content={'ADMIN MODE: ' + (adminmode ? 'ON' : 'OFF')}
+                      content={`ADMIN MODE: ${adminmode ? 'ON' : 'OFF'}`}
                       color={adminmode ? 'bad' : 'good'}
                       onClick={() => act('PRG_toggleadmin')}
                     />
@@ -174,8 +174,13 @@ export const NtosNetChat = (props) => {
                   backgroundColor={this_client && this_client.muted && 'red'}
                   height="22px"
                   placeholder={
+<<<<<<< HEAD
                     (this_client && this_client.muted && 'You are muted!') ||
                     'Message ' + title
+=======
+                    (this_client?.muted && 'You are muted!') ||
+                    `Message ${title}`
+>>>>>>> d59e5ad5c63 ([tgui] Linter fixes 8 (#92101))
                   }
                   fluid
                   disabled={this_client && this_client.muted}

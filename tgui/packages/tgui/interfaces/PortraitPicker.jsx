@@ -12,9 +12,15 @@ export const PortraitPicker = (props) => {
   const got_paintings = !!paintings.length;
   const current_portrait_title = got_paintings && paintings[listIndex]['title'];
   const current_portrait_author =
+<<<<<<< HEAD
     got_paintings && 'By ' + paintings[listIndex]['creator'];
   const current_portrait_asset_name =
     got_paintings && 'paintings' + '_' + paintings[listIndex]['md5'];
+=======
+    got_paintings && `By ${paintings[listIndex].creator}`;
+  const current_portrait_asset_name =
+    got_paintings && `paintings_${paintings[listIndex].md5}`;
+>>>>>>> d59e5ad5c63 ([tgui] Linter fixes 8 (#92101))
 
   return (
     <Window theme="ntos" title="Portrait Picker" width={400} height={406}>
