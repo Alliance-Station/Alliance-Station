@@ -1,14 +1,22 @@
 import { Box, Icon, Section, Stack, Tooltip } from 'tgui-core/components';
+<<<<<<< HEAD
 import { classes } from 'tgui-core/react';
+=======
+import { type BooleanLike, classes } from 'tgui-core/react';
+>>>>>>> 6ba7ba69dc4 ([tgui] Linter fixes 7 (#92100))
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
 import { DesignBrowser } from './Fabrication/DesignBrowser';
 import { MaterialAccessBar } from './Fabrication/MaterialAccessBar';
 import { MaterialCostSequence } from './Fabrication/MaterialCostSequence';
+<<<<<<< HEAD
 import { Material } from './Fabrication/Types';
 import { Design } from './Fabrication/Types';
 import { MaterialMap } from './Fabrication/Types';
+=======
+import type { Design, Material, MaterialMap } from './Fabrication/Types';
+>>>>>>> 6ba7ba69dc4 ([tgui] Linter fixes 7 (#92100))
 
 type ComponentPrinterData = {
   designs: Record<string, Design>;
