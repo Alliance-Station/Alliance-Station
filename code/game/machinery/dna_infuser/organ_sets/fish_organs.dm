@@ -288,9 +288,15 @@
 /datum/bodypart_overlay/mutant/tail/fish/on_mob_insert(obj/item/organ/parent, mob/living/carbon/receiver)
 	//Initialize the related dna feature block if we don't have any so it doesn't error out.
 	//This isn't tied to any species, but I kinda want it to be mutable instead of having a fixed sprite accessory.
+<<<<<<< HEAD
 	if(imprint_on_next_insertion && !receiver.dna.features["fish_tail"])
 		receiver.dna.features["fish_tail"] = pick(SSaccessories.tails_list_fish)
 		receiver.dna.update_uf_block(DNA_FISH_TAIL_BLOCK)
+=======
+	if(imprint_on_next_insertion && !receiver.dna.features[FEATURE_TAIL_FISH])
+		receiver.dna.features[FEATURE_TAIL_FISH] = pick(SSaccessories.tails_list_fish)
+		receiver.dna.update_uf_block(/datum/dna_block/feature/tail_fish)
+>>>>>>> 9197e23f987 ([NO GBP] fish infusion and other mutant feature fixes (#92161))
 
 	return ..()
 

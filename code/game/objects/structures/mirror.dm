@@ -206,8 +206,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 			var/list/mutant_hsv = rgb2hsv(new_mutantcolor)
 
 			if(mutant_hsv[3] >= 50) // mutantcolors must be bright
+<<<<<<< HEAD
 				race_changer.dna.features["mcolor"] = sanitize_hexcolor(new_mutantcolor)
 				race_changer.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
+=======
+				race_changer.dna.features[FEATURE_MUTANT_COLOR] = sanitize_hexcolor(new_mutantcolor)
+				race_changer.dna.update_uf_block(/datum/dna_block/feature/mutant_color)
+>>>>>>> 9197e23f987 ([NO GBP] fish infusion and other mutant feature fixes (#92161))
 			else
 				to_chat(race_changer, span_notice("Invalid color. Your color is not bright enough."))
 				return TRUE

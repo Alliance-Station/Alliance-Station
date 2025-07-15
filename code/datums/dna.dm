@@ -392,6 +392,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		CRASH("UF block index is null")
 	if(!ishuman(holder))
 		CRASH("Non-human mobs shouldn't have DNA")
+<<<<<<< HEAD:code/datums/dna.dm
 	switch(blocknumber)
 		if(DNA_MUTANT_COLOR_BLOCK)
 			set_uni_feature_block(blocknumber, sanitize_hexcolor(features["mcolor"], include_crunch = FALSE))
@@ -425,6 +426,10 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 			set_uni_feature_block(blocknumber, construct_block(SSaccessories.pod_hair_list.Find(features["pod_hair"]), length(SSaccessories.pod_hair_list)))
 		if(DNA_FISH_TAIL_BLOCK)
 			set_uni_feature_block(blocknumber, construct_block(SSaccessories.tails_list_fish.Find(features["fish_tail"]), length(SSaccessories.tails_list_fish)))
+=======
+	var/datum/dna_block/feature/block = GLOB.dna_feature_blocks[blocktype]
+	unique_features = block.modified_hash(unique_features, block.unique_block(holder))
+>>>>>>> 9197e23f987 ([NO GBP] fish infusion and other mutant feature fixes (#92161)):code/datums/dna/dna.dm
 
 /**
  * Checks if two DNAs are practically the same by comparing their most defining features
