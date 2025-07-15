@@ -10,7 +10,15 @@ import {
 import { resolveAsset } from '../../assets';
 import { useBackend } from '../../backend';
 import { Window } from '../../layouts';
+<<<<<<< HEAD
 import { Connection, Connections, Position } from './../common/Connections';
+=======
+import {
+  type Connection,
+  Connections,
+  type Coordinates,
+} from './../common/Connections';
+>>>>>>> d9e370ef484 (Refactors detective board (#92054))
 import { ABSOLUTE_Y_OFFSET } from './../IntegratedCircuit/constants';
 import { PlaneEditor } from './PlaneEditor';
 import { PlaneMaster } from './PlaneMaster';
@@ -30,7 +38,7 @@ import {
 } from './types';
 import { PlaneDebugContext } from './usePlaneDebug';
 
-function getPosition(el: HTMLElement | null): Position {
+function getPosition(el: HTMLElement | null): Coordinates {
   let xPos = 0;
   let yPos = 0;
 

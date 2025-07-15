@@ -2,15 +2,20 @@ import { Box, Button } from 'tgui-core/components';
 import { classes } from 'tgui-core/react';
 
 import { useBackend } from '../../backend';
+<<<<<<< HEAD
 import { DataCase } from './DataTypes';
+=======
+import type { DataCase } from './types';
+>>>>>>> d9e370ef484 (Refactors detective board (#92054))
 
-type BoardTabsData = {
+type Data = {
   cases: DataCase[];
   current_case: number;
 };
 
-const BoardTab = (props) => {
-  const { color, selected, onClick = () => {}, children } = props;
+function BoardTab(props) {
+  const { color, selected, onClick, children } = props;
+
   return (
     <Box
       onClick={onClick}
@@ -23,11 +28,12 @@ const BoardTab = (props) => {
       <Box className={'BoardTab__Contain'}>{children}</Box>
     </Box>
   );
-};
+}
 
-export const BoardTabs = (props) => {
-  const { act, data } = useBackend<BoardTabsData>();
+export function BoardTabs(props) {
+  const { act, data } = useBackend<Data>();
   const { cases, current_case } = data;
+
   return (
     <Box className="BoardTabs">
       {cases?.map((item, index) => (
@@ -61,4 +67,4 @@ export const BoardTabs = (props) => {
       <Button color="transparent" icon="plus" onClick={() => act('add_case')} />
     </Box>
   );
-};
+}
