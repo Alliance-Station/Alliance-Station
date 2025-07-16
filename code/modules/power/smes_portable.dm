@@ -111,11 +111,7 @@
 	/// The port this is connected to.
 	var/obj/machinery/power/smes/connector/connected_port
 
-<<<<<<< HEAD
-/obj/machinery/power/smesbank/on_construction(mob/user, from_flatpack = FALSE)
-=======
 /obj/machinery/smesbank/Initialize(mapload)
->>>>>>> f57f95aa95c ([MDB Ignore] General maintenance for SMES (#91587))
 	. = ..()
 
 	///Initial connection for mapload
