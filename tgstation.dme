@@ -6670,6 +6670,7 @@
 
 // ALLIANCE MODULAR
 #include "alliance_modules\modules\modular_mapping\code\decals.dm"
+#include "alliance_modules\modules\modular_mapping\code\flag.dm"
 #include "alliance_modules\modules\modular_mapping\code\floors.dm"
 #include "alliance_modules\modules\modular_mapping\code\sign.dm"
 #include "alliance_modules\modules\modular_obj\code\chair.dm"
@@ -6679,6 +6680,7 @@
 #include "alliance_modules\modules\original_editing\apc\code\apc.dm"
 #include "alliance_modules\modules\original_editing\computers\code\computer.dm"
 #include "alliance_modules\modules\original_editing\decals\code\decals.dm"
+#include "alliance_modules\modules\original_editing\floor\code\floor.dm"
 #include "alliance_modules\modules\original_editing\flora\code\plants.dm"
 #include "alliance_modules\modules\original_editing\misc\code\sign.dm"
 #include "alliance_modules\modules\original_editing\storages\code\crate.dm"

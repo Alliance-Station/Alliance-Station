@@ -76045,6 +76045,9 @@
 /obj/item/holosign_creator/engineering,
 /obj/item/multitool,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/turf_decal/tile/dark_green/tram{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/station/engineering/main)
 "sOi" = (
