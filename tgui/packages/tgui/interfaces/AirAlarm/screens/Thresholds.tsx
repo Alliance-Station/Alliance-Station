@@ -111,31 +111,6 @@ export function AirAlarmControlThresholds(props) {
             </Button>
           </Table.Cell>
           <Table.Cell>
-<<<<<<< HEAD
-            <>
-              <Button
-                color="green"
-                icon="sync"
-                onClick={() =>
-                  act('reset_threshold', {
-                    threshold: tlv.id,
-                    threshold_type: thresholdTypeMap['all'],
-                  })
-                }
-              />
-              <Button
-                color="red"
-                icon="times"
-                onClick={() =>
-                  act('set_threshold', {
-                    threshold: tlv.id,
-                    threshold_type: thresholdTypeMap['all'],
-                    value: -1,
-                  })
-                }
-              />
-            </>
-=======
             <Button
               color="green"
               icon="sync"
@@ -157,7 +132,6 @@ export function AirAlarmControlThresholds(props) {
                 })
               }
             />
->>>>>>> cadb0adeb41 ([tgui] Linter fixes 4 (#91991))
           </Table.Cell>
         </Table.Row>
       ))}
