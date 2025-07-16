@@ -1,12 +1,8 @@
 import { useState } from 'react';
 import { Button, Dropdown, Modal, Section, Stack } from 'tgui-core/components';
 
-<<<<<<< HEAD
-import { BlendModes, Plane } from './types';
-=======
 import { useBackend } from '../../backend';
 import { BlendModes, type Plane } from './types';
->>>>>>> dc53bc504b2 ([tgui] Linter fixes 6 (#92071))
 import { usePlaneDebugContext } from './usePlaneDebug';
 
 export function PlaneMenus() {

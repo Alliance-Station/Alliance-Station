@@ -1,12 +1,8 @@
 import { Box, Button, Floating, Stack } from 'tgui-core/components';
 import { classes } from 'tgui-core/react';
 
-<<<<<<< HEAD
-import { BlendColors, Filter, Plane, Relay } from './types';
-=======
 import { useBackend } from '../../backend';
 import { BlendColors, type Filter, type Plane, type Relay } from './types';
->>>>>>> dc53bc504b2 ([tgui] Linter fixes 6 (#92071))
 import { usePlaneDebugContext } from './usePlaneDebug';
 
 export type PortProps = {
