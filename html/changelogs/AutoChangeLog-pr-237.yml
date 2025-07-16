@@ -1,0 +1,4 @@
+author: "twilightwanderer"
+delete-after: True
+changes:
+  - admin: "The admin spawned component printer UI functions again"
