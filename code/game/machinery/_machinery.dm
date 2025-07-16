@@ -160,8 +160,6 @@
 	fire = 50
 	acid = 70
 
-<<<<<<< HEAD
-=======
 ///Needed by machine frame & flatpacker i.e the named arg board
 /obj/machinery/New(loc, obj/item/circuitboard/board, ...)
 	if(istype(board))
@@ -171,13 +169,13 @@
 
 	return ..()
 
->>>>>>> 9c730461639 ([NO GBP] Some flatpack & machine fixes (#92094))
 /obj/machinery/Initialize(mapload)
 	. = ..()
 	SSmachines.register_machine(src)
 
 	if(ispath(circuit, /obj/item/circuitboard))
 		circuit = new circuit(src)
+	if(istype(circuit))
 		circuit.apply_default_parts(src)
 
 	if(processing_flags & START_PROCESSING_ON_INIT)
@@ -1203,10 +1201,10 @@
 /obj/machinery/examine_more(mob/user)
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_RESEARCH_SCANNER) && component_parts)
-		. += display_parts(user, TRUE)
+		. += display_parts(user)
 
 //called on machinery construction (i.e from frame to machinery) but not on initialization
-/obj/machinery/proc/on_construction(mob/user, from_flatpack = FALSE)
+/obj/machinery/proc/on_construction(mob/user)
 	return
 
 /**
