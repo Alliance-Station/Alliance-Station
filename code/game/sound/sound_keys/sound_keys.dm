@@ -13,11 +13,6 @@
 /datum/sound_effect/proc/return_sfx()
 	return pick(file_paths)
 
-/datum/sound_effect/assoc
-
-/datum/sound_effect/assoc/return_sfx()
-	return pick_weight(file_paths)
-
 /datum/sound_effect/shatter
 	key = SFX_SHATTER
 	file_paths = list(
@@ -847,6 +842,7 @@
 /datum/sound_effect/cig_pack_throw_drop
 	key = SFX_CIG_PACK_THROW_DROP
 	file_paths = list('sound/items/cigs/cig_pack_throw_drop1.ogg')
+<<<<<<< HEAD:code/game/sound_keys.dm
 
 
 /* assoc lists go next */
@@ -890,3 +886,5 @@
 		'sound/mobs/non-humanoids/cat/cat_meow3.ogg' = 33,
 		'sound/mobs/non-humanoids/cat/oranges_meow1.ogg' = 1,
 	)
+=======
+>>>>>>> 8060eb5956f (code organization for sound dm files (#92081)):code/game/sound/sound_keys/sound_keys.dm
