@@ -26,6 +26,7 @@
 	cost = 8 //20% discount!
 	cant_discount = TRUE
 
+<<<<<<< HEAD
 /datum/uplink_item/explosives/x4bag
 	name = "Bag of X-4 explosives"
 	desc = "Contains 3 X-4 shaped plastic explosives. Similar to C4, but with a stronger blast that is directional instead of circular. \
@@ -34,6 +35,15 @@
 	item = /obj/item/storage/backpack/duffelbag/syndie/x4
 	cost = 4
 	cant_discount = TRUE
+=======
+/datum/uplink_item/explosives/frag
+	name = "Frag Grenade"
+	desc = "A frag grenade. Pop the pin. Throw towards enemy. Keep clear of the shrapnel. Easy!"
+	item = /obj/item/grenade/frag
+	cost = 1
+	limited_stock = 10
+	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS //nukies get a whole box of these at once at a considerable discount.
+>>>>>>> 087fe3aa875 (Fixes frag grenade entry in the uplink containing full bags of C4 (#92138))
 
 /datum/uplink_item/explosives/detomatix
 	name = "Detomatix disk"
