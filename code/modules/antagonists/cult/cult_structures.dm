@@ -172,16 +172,12 @@
 
 	var/list/choices = list()
 	for(var/item in options)
-<<<<<<< HEAD
-		choices[item] = options[item][PREVIEW_IMAGE]
-=======
 		var/datum/radial_menu_choice/cultitem = new()
 		cultitem.name = item
 		cultitem.info = span_cult_italic(options[item][RADIAL_DESC])
 		cultitem.image = options[item][PREVIEW_IMAGE]
 		cultitem.tooltip_theme = "cult"
 		choices[item] = cultitem
->>>>>>> 45ad64053c9 (Radial Info is shown in tooltip rather than necessitating you click on them + action button fix (#92082))
 
 	var/picked_choice = show_radial_menu(
 		user,
@@ -190,7 +186,7 @@
 		custom_check = CALLBACK(src, PROC_REF(check_menu), user),
 		require_near = TRUE,
 		tooltips = TRUE,
-		)
+	)
 
 	if(!picked_choice)
 		return
