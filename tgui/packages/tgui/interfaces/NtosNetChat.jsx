@@ -171,19 +171,14 @@ export const NtosNetChat = (props) => {
               </Stack.Item>
               {!!in_channel && (
                 <Input
-                  backgroundColor={this_client && this_client.muted && 'red'}
+                  backgroundColor={this_client?.muted && 'red'}
                   height="22px"
                   placeholder={
-<<<<<<< HEAD
-                    (this_client && this_client.muted && 'You are muted!') ||
-                    'Message ' + title
-=======
                     (this_client?.muted && 'You are muted!') ||
                     `Message ${title}`
->>>>>>> d59e5ad5c63 ([tgui] Linter fixes 8 (#92101))
                   }
                   fluid
-                  disabled={this_client && this_client.muted}
+                  disabled={this_client?.muted}
                   selfClear
                   mt={1}
                   onEnter={(value) =>

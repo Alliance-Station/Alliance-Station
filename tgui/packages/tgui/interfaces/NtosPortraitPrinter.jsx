@@ -17,19 +17,12 @@ export const NtosPortraitPrinter = (props) => {
   const [listIndex, setListIndex] = useState(0);
   const { paintings, search_string, search_mode } = data;
   const got_paintings = !!paintings.length;
-  const current_portrait_title = got_paintings && paintings[listIndex]['title'];
+  const current_portrait_title = got_paintings && paintings[listIndex].title;
   const current_portrait_author =
-<<<<<<< HEAD
-    got_paintings && 'By ' + paintings[listIndex]['creator'];
-  const current_portrait_asset_name =
-    got_paintings && 'paintings' + '_' + paintings[listIndex]['md5'];
-  const current_portrait_ratio = got_paintings && paintings[listIndex]['ratio'];
-=======
     got_paintings && `By ${paintings[listIndex].creator}`;
   const current_portrait_asset_name =
     got_paintings && `paintings_${paintings[listIndex].md5}`;
   const current_portrait_ratio = got_paintings && paintings[listIndex].ratio;
->>>>>>> d59e5ad5c63 ([tgui] Linter fixes 8 (#92101))
 
   return (
     <NtosWindow title="Art Galaxy" width={400} height={446}>
@@ -124,7 +117,7 @@ export const NtosPortraitPrinter = (props) => {
                         disabled={!got_paintings}
                         onClick={() =>
                           act('select', {
-                            selected: paintings[listIndex]['ref'],
+                            selected: paintings[listIndex].ref,
                           })
                         }
                       />

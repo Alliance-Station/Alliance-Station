@@ -37,13 +37,8 @@ function Story() {
             onClick={() =>
               setTimeout(() => {
                 try {
-<<<<<<< HEAD
-                  const result = new Function('return (' + code + ')')();
-                  if (result && result.then) {
-=======
                   const result = new Function(`return (${code})`)();
                   if (result?.then) {
->>>>>>> d59e5ad5c63 ([tgui] Linter fixes 8 (#92101))
                     logger.log('Promise');
                     result.then(logger.log);
                   } else {

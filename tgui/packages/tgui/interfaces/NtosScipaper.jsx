@@ -230,36 +230,30 @@ const PaperBrowser = (props) => {
   } else {
     return publishedPapers.map((paper) => (
       <Collapsible
-        key={String(paper['experimentName'] + paper['tier'])}
-        title={paper['title']}
+        key={String(paper.experimentName + paper.tier)}
+        title={paper.title}
       >
         <Section>
           <LabeledList>
             <LabeledList.Item label="Topic">
-<<<<<<< HEAD
-              {paper['experimentName'] + ' - ' + paper['tier']}
-=======
               {`${paper.experimentName} - ${paper.tier}`}
->>>>>>> d59e5ad5c63 ([tgui] Linter fixes 8 (#92101))
             </LabeledList.Item>
             <LabeledList.Item label="Author">
-              {paper['author'] + (paper.etAlia ? ' et al.' : '')}
+              {paper.author + (paper.etAlia ? ' et al.' : '')}
             </LabeledList.Item>
-            <LabeledList.Item label="Partner">
-              {paper['partner']}
-            </LabeledList.Item>
+            <LabeledList.Item label="Partner">{paper.partner}</LabeledList.Item>
             <LabeledList.Item label="Yield">
               <LabeledList>
                 <LabeledList.Item label="Cooperation">
-                  {paper['gains'][coopIndex - 1]}
+                  {paper.gains[coopIndex - 1]}
                 </LabeledList.Item>
                 <LabeledList.Item label="Funding">
-                  {paper['gains'][fundingIndex - 1]}
+                  {paper.gains[fundingIndex - 1]}
                 </LabeledList.Item>
               </LabeledList>
             </LabeledList.Item>
             <LabeledList.Item label="Abstract">
-              {paper['abstract']}
+              {paper.abstract}
             </LabeledList.Item>
           </LabeledList>
         </Section>
