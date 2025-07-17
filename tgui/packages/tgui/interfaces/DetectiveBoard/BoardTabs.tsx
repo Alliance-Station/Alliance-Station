@@ -2,11 +2,7 @@ import { Box, Button } from 'tgui-core/components';
 import { classes } from 'tgui-core/react';
 
 import { useBackend } from '../../backend';
-<<<<<<< HEAD
-import { DataCase } from './DataTypes';
-=======
 import type { DataCase } from './types';
->>>>>>> d9e370ef484 (Refactors detective board (#92054))
 
 type Data = {
   cases: DataCase[];
@@ -22,7 +18,7 @@ function BoardTab(props) {
       className={classes([
         'BoardTab',
         selected ? 'BoardTab__Selected' : 'BoardTab__Perspective',
-        !selected && 'BoardTab__' + color,
+        !selected && `BoardTab__${color}`,
       ])}
     >
       <Box className={'BoardTab__Contain'}>{children}</Box>

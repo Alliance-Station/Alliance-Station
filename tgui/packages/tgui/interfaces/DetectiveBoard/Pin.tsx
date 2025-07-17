@@ -2,12 +2,8 @@ import { useEffect, useState } from 'react';
 import { Box, Stack } from 'tgui-core/components';
 import { classes } from 'tgui-core/react';
 
-<<<<<<< HEAD
-import { DataEvidence } from './DataTypes';
-=======
 import type { Coordinates } from '../common/Connections';
 import type { DataEvidence } from './types';
->>>>>>> d9e370ef484 (Refactors detective board (#92054))
 
 type Props = {
   evidence: DataEvidence;

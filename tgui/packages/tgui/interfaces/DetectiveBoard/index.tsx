@@ -3,18 +3,12 @@ import { Box, Button, Icon, Stack } from 'tgui-core/components';
 
 import { useBackend } from '../../backend';
 import { Window } from '../../layouts';
-<<<<<<< HEAD
-import { Connection, Connections, Position } from '../common/Connections';
-import { BoardTabs } from './BoardTabs';
-import { DataCase, DataEvidence } from './DataTypes';
-=======
 import {
   type Connection,
   Connections,
   type Coordinates,
 } from '../common/Connections';
 import { BoardTabs } from './BoardTabs';
->>>>>>> d9e370ef484 (Refactors detective board (#92054))
 import { Evidence } from './Evidence';
 import type { DataCase, DataEvidence } from './types';
 

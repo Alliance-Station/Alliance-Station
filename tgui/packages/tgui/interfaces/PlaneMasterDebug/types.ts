@@ -1,10 +1,6 @@
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 
-<<<<<<< HEAD
-import { Position } from '../common/Connections';
-=======
 import type { Coordinates } from '../common/Connections';
->>>>>>> d9e370ef484 (Refactors detective board (#92054))
 
 export type PlaneDebugData = {
   mob_name: string;

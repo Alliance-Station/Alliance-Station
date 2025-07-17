@@ -1,12 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Box, Button, Flex, Stack } from 'tgui-core/components';
 
-<<<<<<< HEAD
-import { DataEvidence } from './DataTypes';
-=======
 import { useBackend } from '../../backend';
 import type { Coordinates } from '../common/Connections';
->>>>>>> d9e370ef484 (Refactors detective board (#92054))
 import { Pin } from './Pin';
 import type { DataEvidence, EvidenceFn } from './types';
 
