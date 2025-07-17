@@ -1,0 +1,4 @@
+author: "twilightwanderer"
+delete-after: True
+changes:
+  - bugfix: "Blood Brother with existing antag datum now properly added to Blood Brothers team, which fixes bug with 3 blood brothers in team 100% of time"
