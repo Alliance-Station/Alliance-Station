@@ -23,6 +23,12 @@ if [ -d ".git" ]; then
   mkdir -p $1/.git/logs
   cp -r .git/logs/* $1/.git/logs/
 fi
+# ALLIANCE EDIT ADDITION START - Get all the .dmis and json configs from alliance_modules
+mkdir -p \
+		$1/alliance_modules \
+
+find alliance_modules/ -name \*.dmi -exec cp --parents {} $1 \;
+# ALLIANCE EDIT ADDITION END
 
 cp tgstation.dmb tgstation.rsc $1/
 cp -r _maps/* $1/_maps/

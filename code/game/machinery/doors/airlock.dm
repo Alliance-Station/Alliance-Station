@@ -1,3 +1,5 @@
+// ALLIANCE_EDIT_FLAG
+
 /*
 	New methods:
 	pulse - sends a pulse into a wire for hacking purposes
@@ -22,12 +24,21 @@
 /// Someone, for the love of god, profile this.  Is there a reason to cache mutable_appearance
 /// if so, why are we JUST doing the airlocks when we can put this in mutable_appearance.dm for
 /// everything
-/proc/get_airlock_overlay(icon_state, icon_file, atom/offset_spokesman, em_block)
+/proc/get_airlock_overlay(icon_state, icon_file, atom/offset_spokesman, em_block, state_color = null) // ALLIANCE EDIT - Airlock accent greyscale color support - Added `state_color = null`
 	var/static/list/airlock_overlays = list()
 
-	var/base_icon_key = "[icon_state][REF(icon_file)]"
+	var/base_icon_key = "[icon_state][REF(icon_file)][state_color]" // ALLIANCE EDIT - Airlock accent greyscale color support - ORIGINAL: var/base_icon_key = "[icon_state][REF(icon_file)]"
 	if(!(. = airlock_overlays[base_icon_key]))
+		/* ALLIANCE EDIT - Airlock accent greyscale color support - ORIGINAL:
 		. = airlock_overlays[base_icon_key] = mutable_appearance(icon_file, icon_state)
+		*/ // ALLIANCE EDIT START
+		var/mutable_appearance/airlock_overlay = mutable_appearance(icon_file, icon_state)
+		if(state_color)
+			airlock_overlay.color = state_color
+
+		. = airlock_overlays[base_icon_key] = airlock_overlay
+		// ALLIANCE EDIT END
+
 	if(isnull(em_block))
 		return
 
@@ -45,7 +56,8 @@
 // "Would this be better with a global var"
 
 // Wires for the airlock are located in the datum folder, inside the wires datum folder.
-
+// ALLIANCE EDIT REMOVAL START - moved to alliance_modules\master_files\__DEFINES\airlock.dm
+/*
 #define AIRLOCK_FRAME_CLOSED "closed"
 #define AIRLOCK_FRAME_CLOSING "closing"
 #define AIRLOCK_FRAME_OPEN "open"
@@ -71,6 +83,8 @@
 #define DOOR_CLOSE_WAIT 60 /// Time before a door closes, if not overridden
 
 #define DOOR_VISION_DISTANCE 11 ///The maximum distance a door will see out to
+*/
+// ALLIANCE EDIT REMOVAL END - moved to alliance_modules\master_files\__DEFINES\airlock.dm
 
 /obj/machinery/door/airlock
 	name = "Airlock"
@@ -135,9 +149,9 @@
 	var/previous_airlock = /obj/structure/door_assembly
 	/// Material of inner filling; if its an airlock with glass, this should be set to "glass"
 	var/airlock_material
-	var/overlays_file = 'icons/obj/doors/airlocks/station/overlays.dmi'
+	var/overlays_file = 'icons/obj/doors/airlocks/station/overlays.dmi' // ALLIANCE EDIT - ICON OVERRIDDEN IN SPRITE_REPLACEMENT MODULE
 	/// Used for papers and photos pinned to the airlock
-	var/note_overlay_file = 'icons/obj/doors/airlocks/station/overlays.dmi'
+	var/note_overlay_file = 'icons/obj/doors/airlocks/station/overlays.dmi' // ALLIANCE EDIT - ICON OVERRIDDEN IN SPRITE_REPLACEMENT MODULE
 
 	/// Airlock pump that overrides airlock controlls when set up for cycling
 	var/obj/machinery/atmospherics/components/unary/airlock_pump/cycle_pump
@@ -533,6 +547,7 @@
 	else
 		icon_state = "[base_icon_state]closed"
 
+/* ALLIANCE EDIT REMOVAL - SPRITE_REPLACEMENT - OVERWRITTEN IN alliance_modules\modules\sprite_replacement\airlock\code\airlock.dm
 /obj/machinery/door/airlock/update_overlays()
 	. = ..()
 
@@ -612,6 +627,7 @@
 					floorlight.pixel_w = -32
 					floorlight.pixel_z = 0
 			. += floorlight
+*/
 
 /obj/machinery/door/airlock/run_animation(animation, force_type = DEFAULT_DOOR_CHECKS)
 	if(animation == DOOR_DENY_ANIMATION)
@@ -1342,6 +1358,7 @@
 			return TRUE
 
 		if(BYPASS_DOOR_CHECKS) // No power usage, special sound, get it open.
+			playsound(src, forcedOpen, 30, TRUE) // ALLIANCE EDIT CHANGE - SPRITE_REPLACEMENT - ORIGINAL: playsound(src, 'sound/machines/airlock/airlockforced.ogg', 30, TRUE)
 			return TRUE
 
 		else
@@ -2568,6 +2585,8 @@
 	opacity = FALSE
 	glass = TRUE
 
+// ALLIANCE EDIT REMOVAL START - moved to alliance_modules\master_files\__DEFINES\airlock.dm
+/*
 #undef AIRLOCK_SECURITY_NONE
 #undef AIRLOCK_SECURITY_IRON
 #undef AIRLOCK_SECURITY_PLASTEEL_I_S
@@ -2592,3 +2611,5 @@
 #undef AIRLOCK_FRAME_CLOSING
 #undef AIRLOCK_FRAME_OPEN
 #undef AIRLOCK_FRAME_OPENING
+*/
+// ALLIANCE EDIT REMOVAL END - moved to alliance_modules\master_files\__DEFINES\airlock.dm
