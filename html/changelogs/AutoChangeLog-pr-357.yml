@@ -1,0 +1,4 @@
+author: "twilightwanderer"
+delete-after: True
+changes:
+  - rscadd: "You can construct reinforced plastitanium walls by using plastitanium on reinforced girders."
