@@ -1,0 +1,19 @@
+{
+	"version": 1,
+	"map_name": "SSV Norilsk",
+	"map_path": "map_files/SSVNorilsk",
+	"map_file": "SSVNorilsk.dmm",
+	"traits": [
+		{
+			"Linkage": "Cross"
+		},
+		{
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": "Cross"
+		},
+		{
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": "Cross"
+		}
+	]
+}

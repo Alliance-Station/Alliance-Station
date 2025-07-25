@@ -21787,6 +21787,10 @@
 /obj/effect/turf_decal/siding/yellow,
 /turf/open/floor/iron,
 /area/station/engineering/atmos/storage/gas)
+"fun" = (
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/engineering/gravity_generator)
 "fuw" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 1
@@ -76253,6 +76257,9 @@
 /obj/item/holosign_creator/engineering,
 /obj/item/multitool,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/turf_decal/tile/dark_green/tram{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/station/engineering/main)
 "sOi" = (
@@ -118701,7 +118708,7 @@ nUp
 dWk
 khE
 cna
-fFu
+fun
 whA
 vPL
 ooc

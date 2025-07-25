@@ -20,6 +20,7 @@
 // BEGIN_INCLUDE
 #include "__odlint.dm"
 #include "_maps\_basemap.dm"
+#include "alliance_modules\master_files\__DEFINES\airlock.dm"
 #include "code\__byond_version_compat.dm"
 #include "code\_compile_options.dm"
 #include "code\_experiments.dm"
@@ -6673,3 +6674,26 @@
 #include "interface\fonts\tiny_unicode.dm"
 #include "interface\fonts\vcr_osd_mono.dm"
 // END_INCLUDE
+
+// ALLIANCE MODULAR
+#include "alliance_modules\modules\modular_mapping\code\decals.dm"
+#include "alliance_modules\modules\modular_mapping\code\flag.dm"
+#include "alliance_modules\modules\modular_mapping\code\floors.dm"
+#include "alliance_modules\modules\modular_mapping\code\sign.dm"
+#include "alliance_modules\modules\modular_obj\code\chair.dm"
+#include "alliance_modules\modules\modular_obj\code\galaxy_map.dm"
+#include "alliance_modules\modules\original_editing\airalarm\code\airalarm.dm"
+#include "alliance_modules\modules\original_editing\airlock\code\airlock.dm"
+#include "alliance_modules\modules\original_editing\apc\code\apc.dm"
+#include "alliance_modules\modules\original_editing\computers\code\computer.dm"
+#include "alliance_modules\modules\original_editing\decals\code\decals.dm"
+#include "alliance_modules\modules\original_editing\floor\code\floor.dm"
+#include "alliance_modules\modules\original_editing\flora\code\plants.dm"
+#include "alliance_modules\modules\original_editing\misc\code\sign.dm"
+#include "alliance_modules\modules\original_editing\storages\code\crate.dm"
+#include "alliance_modules\modules\original_editing\storages\code\medkit.dm"
+#include "alliance_modules\modules\original_editing\walls\code\walls.dm"
+#include "alliance_modules\modules\original_editing\windows\code\windows.dm"
+
+#include "alliance_modules\modules\modular_shuttles\code\shuttle.dm"
+#include "alliance_modules\modules\modular_shuttles\code\kodiak\kodiak.dm"

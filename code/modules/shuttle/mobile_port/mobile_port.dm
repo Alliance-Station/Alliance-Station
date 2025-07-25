@@ -1,3 +1,5 @@
+// ALLIANCE_EDIT_FLAG
+
 /obj/docking_port/mobile
 	name = "shuttle"
 	icon_state = "mobile"
@@ -55,6 +57,7 @@
 	var/list/hidden_turfs = list()
 	///List of shuttle events that can run or are running
 	var/list/datum/shuttle_event/event_list = list()
+	var/admin_forced = FALSE // ALLIANCE EDIT ADDITION
 
 	var/list/underlying_areas_by_turf = list()
 
@@ -287,10 +290,14 @@
  * Arguments:
  * * destination_port - Stationary docking port to move the shuttle to
  */
-/obj/docking_port/mobile/proc/request(obj/docking_port/stationary/destination_port)
-	if(!check_dock(destination_port))
+/obj/docking_port/mobile/proc/request(obj/docking_port/stationary/destination_port, forced = FALSE) // ALLIANCE EDIT ADDITION - Forced check
+	if(!check_dock(destination_port) && !forced) // ALLIANCE EDIT CHANGE - ORIGINAL: if(!check_dock(destination_port))
 		testing("check_dock failed on request for [src]")
 		return
+	// ALLIANCE EDIT START - Forced check
+	if(forced)
+		admin_forced = TRUE
+	// ALLIANCE EDIT END
 
 	if(mode == SHUTTLE_IGNITING && destination == destination_port)
 		return
@@ -316,6 +323,10 @@
 		if(SHUTTLE_IDLE, SHUTTLE_IGNITING)
 			destination = destination_port
 			mode = SHUTTLE_IGNITING
+			// ALLIANCE EDIT ADD START
+			bolt_all_doors()
+			play_engine_sound(src, TRUE)
+			// ALLIANCE EDIT ADD END
 			setTimer(ignitionTime)
 
 //recall the shuttle to where it was previously
@@ -464,6 +475,7 @@
 				return
 			if(rechargeTime)
 				mode = SHUTTLE_RECHARGING
+				unbolt_all_doors() // ALLIANCE EDIT ADDITION
 				setTimer(rechargeTime)
 				return
 		if(SHUTTLE_RECALL)
@@ -480,6 +492,8 @@
 				enterTransit()
 				return
 
+	admin_forced = FALSE // ALLIANCE EDIT ADDITION
+	unbolt_all_doors() // ALLIANCE EDIT ADDITION
 	mode = SHUTTLE_IDLE
 	timer = 0
 	destination = null
@@ -490,6 +504,8 @@
 			var/tl = timeLeft(1)
 			if(tl <= SHUTTLE_RIPPLE_TIME)
 				create_ripples(destination, tl)
+				play_engine_sound(src, FALSE) // ALLIANCE EDIT ADDITION
+				play_engine_sound(destination, FALSE) // ALLIANCE EDIT ADDITION
 
 	var/obj/docking_port/stationary/S0 = get_docked()
 	if(istype(S0, /obj/docking_port/stationary/transit) && timeLeft(1) <= PARALLAX_LOOP_TIME)
