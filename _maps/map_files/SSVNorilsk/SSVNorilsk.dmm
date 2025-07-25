@@ -415,7 +415,7 @@
 /turf/open/floor/plating,
 /area/station/ai_monitored/turret_protected/aisat_interior)
 "ca" = (
-/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer2{
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/visible/layer2{
 	dir = 4
 	},
 /turf/open/floor/iron/textured_large,
@@ -451,6 +451,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/teleporter)
+"ch" = (
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible/layer2,
+/obj/machinery/atmospherics/pipe/smart/simple/green/visible,
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/turf/open/floor/plating,
+/area/station/engineering/atmos)
 "ck" = (
 /obj/effect/turf_decal/tile/dark/half{
 	dir = 1
@@ -2453,6 +2459,12 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor/iron,
 /area/station/ai_monitored/turret_protected/aisat_interior)
+"lE" = (
+/obj/machinery/atmospherics/pipe/smart/simple/supply/visible/layer4{
+	dir = 6
+	},
+/turf/open/floor/iron/textured_large,
+/area/station/engineering/atmos)
 "lG" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -3411,6 +3423,12 @@
 	dir = 8
 	},
 /turf/open/floor/iron/textured_large,
+/area/station/engineering/atmos)
+"pJ" = (
+/obj/machinery/atmospherics/pipe/smart/simple/supply/visible,
+/obj/machinery/atmospherics/pipe/smart/simple/supply/visible/layer4,
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/turf/open/floor/plating,
 /area/station/engineering/atmos)
 "pL" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible/layer4{
@@ -7606,6 +7624,10 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/ai)
+"IZ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/visible/layer4,
+/turf/open/floor/iron/textured_large,
+/area/station/engineering/atmos)
 "Jb" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/large,
@@ -9787,6 +9809,10 @@
 "TO" = (
 /turf/closed/wall/r_wall,
 /area/station/ai_monitored/turret_protected/aisat/hallway)
+"TP" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/green/visible,
+/turf/open/floor/iron/textured_large,
+/area/station/engineering/atmos)
 "TQ" = (
 /obj/structure/stairs/west,
 /obj/structure/railing{
@@ -9823,6 +9849,12 @@
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor/iron,
 /area/station/engineering/supermatter/room)
+"Uf" = (
+/obj/machinery/atmospherics/pipe/smart/simple/green/visible{
+	dir = 10
+	},
+/turf/open/floor/iron/textured_large,
+/area/station/engineering/atmos)
 "Ug" = (
 /obj/machinery/telecomms/bus/preset_four,
 /obj/effect/decal/cleanable/dirt,
@@ -36771,11 +36803,11 @@ mc
 mc
 mc
 PQ
+dN
+dN
+dN
 XD
-dN
-dN
-dN
-Jt
+TG
 XD
 XD
 XD
@@ -37028,11 +37060,11 @@ mc
 mc
 mc
 PQ
+Uf
+TP
+ry
 XD
-ry
-ry
-ry
-Jt
+TG
 XD
 XD
 aZ
@@ -37288,8 +37320,8 @@ PQ
 Rl
 HG
 xn
-xn
 hD
+ch
 MS
 od
 xm
@@ -37546,7 +37578,7 @@ XD
 nL
 XD
 XD
-XD
+Jt
 mi
 XD
 XD
@@ -38060,7 +38092,7 @@ XD
 nL
 XD
 XD
-XD
+Jt
 mi
 XD
 XD
@@ -38316,8 +38348,8 @@ PQ
 Rl
 ij
 OM
-OM
 ja
+pJ
 LW
 gz
 JY
@@ -38570,11 +38602,11 @@ mc
 mc
 mc
 PQ
+lE
+IZ
+ON
 XD
-ON
-ON
-ON
-Jt
+TG
 eo
 Xr
 SF
@@ -38827,11 +38859,11 @@ mc
 mc
 mc
 PQ
+Sa
+Sa
+Sa
 XD
-Sa
-Sa
-Sa
-Jt
+TG
 cB
 XD
 XD
@@ -39083,10 +39115,10 @@ KQ
 KQ
 KQ
 KQ
-TG
-TG
-TG
-TG
+PQ
+PQ
+PQ
+PQ
 PQ
 PQ
 SL
@@ -167584,11 +167616,11 @@ Gz
 Gz
 Gz
 Gz
-Gz
-Gz
-Gz
-Gz
-Gz
+IR
+IR
+IR
+IR
+IR
 IR
 IR
 IR
@@ -167841,11 +167873,11 @@ Gz
 Gz
 Gz
 Gz
-Gz
-Gz
-Gz
-Gz
-Gz
+IR
+IR
+IR
+IR
+IR
 IR
 IR
 IR
@@ -168098,11 +168130,11 @@ Gz
 Gz
 Gz
 Gz
-Gz
-Gz
-Gz
-Gz
-Gz
+IR
+IR
+IR
+IR
+IR
 IR
 IR
 IR
@@ -168355,11 +168387,11 @@ Gz
 Gz
 Gz
 Gz
-Gz
-Gz
-Gz
-Gz
-Gz
+IR
+IR
+IR
+IR
+IR
 IR
 IR
 IR
@@ -168612,11 +168644,11 @@ Gz
 Gz
 Gz
 Gz
-Gz
-Gz
-Gz
-Gz
-Gz
+IR
+IR
+IR
+IR
+IR
 IR
 IR
 IR
@@ -168869,11 +168901,11 @@ Gz
 Gz
 Gz
 Gz
-Gz
-Gz
-Gz
-Gz
-Gz
+IR
+IR
+IR
+IR
+IR
 IR
 IR
 IR
@@ -169126,11 +169158,11 @@ Gz
 Gz
 Gz
 Gz
-Gz
-Gz
-Gz
-Gz
-Gz
+IR
+IR
+IR
+IR
+IR
 IR
 IR
 IR
@@ -169383,11 +169415,11 @@ Gz
 Gz
 Gz
 Gz
-Gz
-Gz
-Gz
-Gz
-Gz
+IR
+IR
+IR
+IR
+IR
 IR
 IR
 IR
@@ -169640,11 +169672,11 @@ Gz
 Gz
 Gz
 Gz
-Gz
-Gz
-Gz
-Gz
-Gz
+IR
+IR
+IR
+IR
+IR
 IR
 IR
 IR
