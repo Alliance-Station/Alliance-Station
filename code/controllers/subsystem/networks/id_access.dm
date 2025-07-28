@@ -556,6 +556,7 @@ SUBSYSTEM_DEF(id_access)
 		if(!issilicon(target))
 			. = __in_character_record_id_information(astype(target.get_idcard(), /obj/item/card/id/advanced))
 			return .
+<<<<<<< HEAD
 		.["Name"] = target.name
 		.["Age"] = "INSPECT MANUFACTURER MANIFEST"
 		.["Account ID"] = 0
@@ -563,6 +564,15 @@ SUBSYSTEM_DEF(id_access)
 		.["Account Assignment"] = "NO ACCOUNT."
 		.["Bank Account"] = "N/A"
 		.["Assignment"] = target.mind?.assigned_role?.title
+=======
+		.["name"] = target.name
+		.["age"] = 0
+		.["assignment"] = "Silicon"
+		.["account_id"] = null
+		.["account_holder"] = null
+		.["account_assignment"] = null
+		.["accesses"] = null
+>>>>>>> 07f6b7e879f ([NO GBP] Silo logging hotfix 2 (includes hotfix 1): Multitool linking, decon/recon, funky define fix (#92349))
 		.[SILICON_OVERRIDE] = SILICON_OVERRIDE
 		return .
 	var/obj/item/card/id/advanced/id_card = astype(target_of_record, /obj/item/card/id/advanced)

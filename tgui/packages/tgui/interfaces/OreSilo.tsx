@@ -48,7 +48,7 @@ type Data = {
   logs: Log[];
 };
 
-export const OreSilo = (props: any) => {
+export const OreSilo = (props: Data) => {
   const { act, data } = useBackend<Data>();
   const { SHEET_MATERIAL_AMOUNT, machines, logs } = data;
 
@@ -84,7 +84,16 @@ export const OreSilo = (props: any) => {
                 onRemove={(index) => act('remove', { id: index })}
               />
             ) : null}
+<<<<<<< HEAD
             {currentTab === Tab.Logs ? <LogsList logs={logs!} /> : null}
+=======
+            {currentTab === Tab.Logs && (
+              <>
+                <RestrictButton />
+                <LogsList logs={logs} />
+              </>
+            )}
+>>>>>>> 07f6b7e879f ([NO GBP] Silo logging hotfix 2 (includes hotfix 1): Multitool linking, decon/recon, funky define fix (#92349))
           </Stack.Item>
           <Stack.Item>
             <Section fill>

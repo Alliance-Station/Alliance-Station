@@ -155,9 +155,13 @@ handles linking back and forth.
 					new_container.materials[mat] += mat_amount
 					mat_container.materials[mat] = 0
 			qdel(mat_container)
+<<<<<<< HEAD
 		silo = new_silo
 		silo.ore_connected_machines += src
 		mat_container = new_container
+=======
+		new_silo.connect_receptacle(src, parent)
+>>>>>>> 07f6b7e879f ([NO GBP] Silo logging hotfix 2 (includes hotfix 1): Multitool linking, decon/recon, funky define fix (#92349))
 		if(!(mat_container_flags & MATCONTAINER_NO_INSERT))
 			RegisterSignal(parent, COMSIG_ATOM_ITEM_INTERACTION, PROC_REF(on_item_insert))
 			RegisterSignal(parent, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY, PROC_REF(on_secondary_insert))
