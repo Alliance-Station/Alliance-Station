@@ -32,6 +32,29 @@
 	if (!GLOB.ore_silo_default && mapload && is_station_level(z))
 		GLOB.ore_silo_default = src
 	register_context()
+<<<<<<< HEAD
+=======
+	setup_radio()
+	configure_default_announcements_policy()
+
+/obj/machinery/ore_silo/emag_act(mob/living/user)
+	if(obj_flags & EMAGGED)
+		return FALSE
+	obj_flags |= EMAGGED
+	return TRUE
+
+/obj/machinery/ore_silo/proc/setup_radio()
+	radio = new(src)
+	radio.subspace_transmission = TRUE
+	radio.canhear_range = 0
+	radio.set_listening(FALSE)
+	radio.keyslot = new
+	radio.keyslot.channels[RADIO_CHANNEL_COMMON] = TRUE
+	radio.keyslot.channels[RADIO_CHANNEL_COMMAND] = TRUE
+	radio.keyslot.channels[RADIO_CHANNEL_SUPPLY] = TRUE
+	radio.keyslot.channels[RADIO_CHANNEL_SECURITY] = TRUE
+	radio.recalculateChannels()
+>>>>>>> 07f6b7e879f ([NO GBP] Silo logging hotfix 2 (includes hotfix 1): Multitool linking, decon/recon, funky define fix (#92349))
 
 /obj/machinery/ore_silo/Destroy()
 	if (GLOB.ore_silo_default == src)
@@ -42,6 +65,7 @@
 
 	ore_connected_machines = null
 	materials = null
+	QDEL_NULL(radio)
 
 	return ..()
 
