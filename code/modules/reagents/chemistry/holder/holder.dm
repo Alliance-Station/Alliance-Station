@@ -502,6 +502,11 @@
 			continue
 		reagents_to_remove[reagent] = transfer_amount
 		total_transfered_amount += transfered_amount
+<<<<<<< HEAD
+=======
+		reagent.volume -= transfer_amount
+		transfer_log += "[reagent.type] ([transfered_amount]u, [reagent.purity] purity)"
+>>>>>>> 6bc86d2bd45 ([NO GBP] Fixes multiplier applied incorrectly in `trans_to()` (#92404))
 
 		if(!isnull(target_id))
 			break
