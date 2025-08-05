@@ -409,6 +409,7 @@
  * * methods - passed through to [/datum/reagents/proc/expose] and [/datum/reagent/proc/on_transfer]
  * * show_message - passed through to [/datum/reagents/proc/expose]
  * * ignore_stomach - when using methods INGEST will not use the stomach as the target
+ * * copy_only - transfers the reagents without removing it from this holder
  */
 /datum/reagents/proc/trans_to(
 	atom/target,
@@ -421,7 +422,8 @@
 	remove_blacklisted = FALSE,
 	methods = NONE,
 	show_message = TRUE,
-	ignore_stomach = FALSE
+	ignore_stomach = FALSE,
+	copy_only = FALSE
 )
 	if(QDELETED(target) || !total_volume)
 		return FALSE
@@ -493,18 +495,33 @@
 
 		if(preserve_data)
 			trans_data = copy_data(reagent)
+<<<<<<< HEAD
 		if(reagent.intercept_reagents_transfer(target_holder, amount))
 			update_total()
 			target_holder.update_total()
+=======
+		if(reagent.intercept_reagents_transfer(target_holder, transfer_amount, copy_only))
+>>>>>>> a1d27e384dc (Merges `copy_to()` into `trans_to()` for reagent holder (#92410))
 			continue
 		transfered_amount = target_holder.add_reagent(reagent.type, transfer_amount * multiplier, trans_data, chem_temp, reagent.purity, reagent.ph, no_react = TRUE, reagent_added = r_to_send, creation_callback = CALLBACK(src, PROC_REF(_on_transfer_creation), reagent, target_holder)) //we only handle reaction after every reagent has been transferred.
 		if(!transfered_amount)
 			continue
 		reagents_to_remove[reagent] = transfer_amount
 		total_transfered_amount += transfered_amount
+<<<<<<< HEAD
 
 		if(!isnull(target_id))
 			break
+=======
+		if(!copy_only)
+			reagent.volume -= transfer_amount
+		transfer_log += "[reagent.type] ([transfered_amount]u, [reagent.purity] purity)"
+
+		if(!isnull(target_id))
+			break
+	if(!copy_only)
+		update_total()
+>>>>>>> a1d27e384dc (Merges `copy_to()` into `trans_to()` for reagent holder (#92410))
 
 	//expose target to reagent changes
 	if(methods)
@@ -532,6 +549,12 @@
 		log_combat(transferred_by, log_target, "transferred reagents to", my_atom, "which had [english_list(transfer_log)]")
 
 	if(!no_react)
+<<<<<<< HEAD
+=======
+		transfer_reactions(target_holder)
+		if(!copy_only)
+			handle_reactions()
+>>>>>>> a1d27e384dc (Merges `copy_to()` into `trans_to()` for reagent holder (#92410))
 		target_holder.handle_reactions()
 		handle_reactions()
 
@@ -544,6 +567,7 @@
 	SEND_SIGNAL(reagent, COMSIG_REAGENT_ON_TRANSFER, target_holder, new_reagent)
 
 /**
+<<<<<<< HEAD
  * Copies the reagents to the target object
  * Arguments
  *
@@ -607,6 +631,8 @@
 	return total_transfered_amount
 
 /**
+=======
+>>>>>>> a1d27e384dc (Merges `copy_to()` into `trans_to()` for reagent holder (#92410))
  * Multiplies reagents inside this holder by a specific amount
  * Arguments
  *
