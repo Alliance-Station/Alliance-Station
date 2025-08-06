@@ -119,7 +119,11 @@
 		. += blood_emissive(icon, icon_state)
 
 /obj/effect/decal/cleanable/blood/proc/blood_emissive(icon_to_use, icon_state_to_use)
+<<<<<<< HEAD
 	return emissive_appearance(icon_to_use, icon_state_to_use, src, layer, 255 * emissive_alpha / alpha)
+=======
+	return emissive_appearance(icon_to_use, icon_state_to_use, src, alpha = 255 * emissive_alpha / alpha, effect_type = EMISSIVE_NO_BLOOM)
+>>>>>>> 3d730689f41 (Implements (a poor imitation of) speculars, improves/fixes unrestricted access overlay lights (#92272))
 
 /obj/effect/decal/cleanable/blood/lazy_init_reagents()
 	if (reagents)

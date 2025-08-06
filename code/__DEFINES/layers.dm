@@ -59,6 +59,7 @@
 #define EMISSIVE_SPACE_LAYER 3
 #define EMISSIVE_WALL_LAYER 4
 
+<<<<<<< HEAD
 #define EMISSIVE_BLOOM_MASK_PLATE 15
 #define EMISSIVE_BLOOM_MASK_TARGET "*EMISSIVE_BLOOM_MASK_PLATE"
 #define EMISSIVE_BLOOM_PLATE 16
@@ -70,6 +71,14 @@
 #define RENDER_PLANE_GAME_MASKED 18
 /// The bit of the game plane that is let alone is sent here
 #define RENDER_PLANE_GAME_UNMASKED 19
+=======
+#define RENDER_PLANE_EMISSIVE_BLOOM_MASK 15
+#define EMISSIVE_BLOOM_MASK_RENDER_TARGET "*RENDER_PLANE_EMISSIVE_BLOOM_MASK"
+#define RENDER_PLANE_EMISSIVE_BLOOM 16
+
+#define RENDER_PLANE_SPECULAR_MASK 17
+#define SPECULAR_MASK_RENDER_TARGET "*RENDER_PLANE_SPECULAR_MASK"
+>>>>>>> 3d730689f41 (Implements (a poor imitation of) speculars, improves/fixes unrestricted access overlay lights (#92272))
 
 //-------------------- Lighting ---------------------
 
@@ -80,23 +89,27 @@
 #define LIGHT_MASK_PLANE 21
 #define LIGHT_MASK_RENDER_TARGET "*LIGHT_MASK_PLANE"
 
-///Things that should render ignoring lighting
-#define ABOVE_LIGHTING_PLANE 22
+/// We cannot render speculars to ABOVE_LIGHTING, as then they give it alpha and end up masking things in darkness
+/// So we need to render it directly to RENDER_PLANE_GAME above RENDER_PLANE_LIGHTING
+#define RENDER_PLANE_SPECULAR 22
 
-#define WEATHER_GLOW_PLANE 23
+/// Things that should render ignoring lighting
+#define ABOVE_LIGHTING_PLANE 23
+
+#define WEATHER_GLOW_PLANE 24
 
 ///---------------- MISC -----------------------
 
 ///Pipecrawling images
-#define PIPECRAWL_IMAGES_PLANE 24
+#define PIPECRAWL_IMAGES_PLANE 25
 
 ///AI Camera Static
-#define CAMERA_STATIC_PLANE 25
+#define CAMERA_STATIC_PLANE 26
 
 ///Anything that wants to be part of the game plane, but also wants to draw above literally everything else
-#define HIGH_GAME_PLANE 26
+#define HIGH_GAME_PLANE 27
 
-#define FULLSCREEN_PLANE 27
+#define FULLSCREEN_PLANE 28
 
 ///--------------- FULLSCREEN RUNECHAT BUBBLES ------------
 
