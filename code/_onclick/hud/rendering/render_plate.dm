@@ -217,6 +217,111 @@
 	if(istype(mymob) && mymob.canon_client?.prefs?.read_preference(/datum/preference/toggle/ambient_occlusion))
 		add_filter("AO", 1, drop_shadow_filter(x = 0, y = -2, size = 4, color = "#04080FAA"))
 
+<<<<<<< HEAD
+=======
+/atom/movable/screen/plane_master/rendering_plate/unlit_game_plate
+	name = "Unlit Game rendering plate"
+	documentation = "Feeds the bits of the game plate which want to be effected by lighting into RENDER_PLANE_GAME and the emissive bloom pipeline (the reason this exists)."
+	plane = RENDER_PLANE_UNLIT_GAME
+	render_relay_planes = list(RENDER_PLANE_GAME)
+
+/atom/movable/screen/plane_master/rendering_plate/unlit_game_plate/Initialize(mapload, datum/hud/hud_owner)
+	. = ..()
+	add_relay_to(GET_NEW_PLANE(RENDER_PLANE_EMISSIVE_BLOOM, offset), blend_override = BLEND_MULTIPLY)
+
+/atom/movable/screen/plane_master/rendering_plate/turf_lighting
+	name = "Turf lighting post-processing plate"
+	documentation = "Used by overlay lighting, and possibly over plates, to mask out turf lighting."
+	plane = RENDER_PLANE_TURF_LIGHTING
+	render_relay_planes = list(RENDER_PLANE_LIGHTING)
+	blend_mode = BLEND_ADD
+	critical = PLANE_CRITICAL_DISPLAY
+
+/atom/movable/screen/plane_master/rendering_plate/turf_lighting/Initialize(mapload, datum/hud/hud_owner, datum/plane_master_group/home, offset)
+	. = ..()
+	/// We get affected by cutoff but not by the contrast that overlay lights get
+	/// So flashlights seem to reflect "better"
+	add_relay_to(GET_NEW_PLANE(RENDER_PLANE_SPECULAR, offset), relay_color = list(
+		1, 0, 0, 0,
+		0, 1, 0, 0,
+		0, 0, 1, 0,
+		0, 0, 0, 1,
+		-SPECULAR_EMISSIVE_CUTOFF, -SPECULAR_EMISSIVE_CUTOFF, -SPECULAR_EMISSIVE_CUTOFF, 0,
+	))
+
+/atom/movable/screen/plane_master/rendering_plate/emissive_slate
+	name = "Emissive Plate"
+	documentation = "This system works by exploiting BYONDs color matrix filter to use layers to handle emissive blockers.\
+		<br>Emissive overlays are pasted with an atom color that converts them to be entirely some specific color.\
+		<br>Emissive blockers are pasted with an atom color that converts them to be entirely some different color.\
+		<br>Emissive overlays and emissive blockers are put onto the same plane (This one).\
+		<br>The layers for the emissive overlays and emissive blockers cause them to mask eachother similar to normal BYOND objects.\
+		<br>A color matrix filter is applied to the emissive plane to mask out anything that isn't whatever the emissive color is.\
+		<br>This is then used to alpha mask the lighting plane."
+	plane = RENDER_PLANE_EMISSIVE
+	appearance_flags = PLANE_MASTER|NO_CLIENT_COLOR
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	render_target = EMISSIVE_RENDER_TARGET
+	render_relay_planes = list()
+	critical = PLANE_CRITICAL_DISPLAY
+
+/atom/movable/screen/plane_master/rendering_plate/emissive_slate/Initialize(mapload, datum/hud/hud_owner, datum/plane_master_group/home, offset)
+	. = ..()
+	add_filter("em_block_masking", 2, color_matrix_filter(GLOB.em_mask_matrix))
+	if(offset != 0)
+		add_relay_to(GET_NEW_PLANE(RENDER_PLANE_EMISSIVE, offset - 1), relay_layer = EMISSIVE_Z_BELOW_LAYER)
+
+/atom/movable/screen/plane_master/rendering_plate/emissive_bloom_mask
+	name = "Emissive bloom mask plate"
+	documentation = "A holder plate used purely as a way to full-white bloom emissives before applying them as a mask onto the emissive bloom plate."
+	plane = RENDER_PLANE_EMISSIVE_BLOOM_MASK
+	appearance_flags = PLANE_MASTER|NO_CLIENT_COLOR
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	render_relay_planes = list()
+	render_target = EMISSIVE_BLOOM_MASK_RENDER_TARGET
+	critical = PLANE_CRITICAL_DISPLAY
+
+/atom/movable/screen/plane_master/rendering_plate/emissive_bloom
+	name = "Emissive bloom plate"
+	documentation = "Plate used to bloom emissives before adding them onto the overlay lighting plane. We do this by multiplying the game plate\
+		onto a fullbright emissive, then alpha masking it by emissive's color to solve the problem of blockers, both alone and covered by emissives."
+	plane = RENDER_PLANE_EMISSIVE_BLOOM
+	appearance_flags = PLANE_MASTER|NO_CLIENT_COLOR
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	blend_mode = BLEND_ADD
+	render_relay_planes = list(O_LIGHTING_VISUAL_PLANE)
+	critical = PLANE_CRITICAL_DISPLAY
+
+/atom/movable/screen/plane_master/rendering_plate/emissive_bloom/Initialize(mapload, datum/hud/hud_owner, datum/plane_master_group/home, offset)
+	. = ..()
+	add_filter("emissive_mask", 1, alpha_mask_filter(render_source = OFFSET_RENDER_TARGET(EMISSIVE_BLOOM_MASK_RENDER_TARGET, offset)))
+	add_filter("emissive_bloom", 2, bloom_filter(threshold = COLOR_BLACK, size = 2, offset = 1))
+
+/atom/movable/screen/plane_master/rendering_plate/specular_mask
+	name = "Specular mask plate"
+	documentation = "Plate used to generate the specular mask for the specular plate effect."
+	plane = RENDER_PLANE_SPECULAR_MASK
+	appearance_flags = PLANE_MASTER|NO_CLIENT_COLOR
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	render_target = SPECULAR_MASK_RENDER_TARGET
+	render_relay_planes = list()
+	critical = PLANE_CRITICAL_DISPLAY
+
+/atom/movable/screen/plane_master/rendering_plate/specular
+	name = "Specular plate"
+	documentation = "Plate used to artificially increase lighting on certain pixels to poorly mimic shiny surfaces."
+	plane = RENDER_PLANE_SPECULAR
+	appearance_flags = PLANE_MASTER|NO_CLIENT_COLOR
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	blend_mode = BLEND_ADD
+	render_relay_planes = list(RENDER_PLANE_GAME)
+	critical = PLANE_CRITICAL_DISPLAY
+
+/atom/movable/screen/plane_master/rendering_plate/specular/Initialize(mapload, datum/hud/hud_owner, datum/plane_master_group/home, offset)
+	. = ..()
+	add_filter("specular_mask", 1, alpha_mask_filter(render_source = OFFSET_RENDER_TARGET(SPECULAR_MASK_RENDER_TARGET, offset)))
+
+>>>>>>> 3d730689f41 (Implements (a poor imitation of) speculars, improves/fixes unrestricted access overlay lights (#92272))
 ///Contains all lighting objects
 /atom/movable/screen/plane_master/rendering_plate/lighting
 	name = "Lighting plate"
