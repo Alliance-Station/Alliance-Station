@@ -123,8 +123,13 @@ GLOBAL_LIST_EMPTY(antagonists)
 
 /datum/antagonist/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
+<<<<<<< HEAD
 	if(. || isobserver(ui.user))
 		return
+=======
+	if(. || ui.user != owner.current)
+		return TRUE
+>>>>>>> 8d777d9d535 ([NO GBP] ghosts can't buy heretic powers (#92464))
 	switch(action)
 		if("change_objectives")
 			submit_player_objective()
